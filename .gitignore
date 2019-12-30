@@ -1,0 +1,6 @@
+dist
+lib
+node_modules
+rif-communications-*
+coverage
+.nyc_output
