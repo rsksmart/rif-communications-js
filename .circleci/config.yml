@@ -27,7 +27,7 @@ jobs:
             npx tasegir commitlint --circleci
       - run:
           name: "Dependency check"
-          command: npx tasegir dep-check -- --unused --no-dev
+          command: npx tasegir dep-check
       - run:
           name: "Code linting"
           command: npx tasegir lint
