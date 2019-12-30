@@ -55,7 +55,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: "Node tests"
-          command: npx nyc -s npm run test:node -- --bail
+          command: npm run test:node -- --bail
       - run:
           name: "Test coverage"
           command: npx nyc report --reporter=text-lcov > coverage.lcov && npx codecov
