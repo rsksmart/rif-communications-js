@@ -1,8 +1,7 @@
 # RIF Communication lib.js
 
-[![CircleCI](https://flat.badgen.net/circleci/github/rsksmart/rif-communications)](https://circleci.com/gh/rsksmart/rif-communications/)
-[![codecov](https://codecov.io/gh/rsksmart/rif-communications/master/graph/badge.svg)](https://codecov.io/gh/rsksmart/rif-communications)
-[![Dependency Status](https://david-dm.org/rsksmart/rif-communications.svg?style=flat-square)](https://david-dm.org/rsksmart/rif-communications)
+[![CircleCI](https://flat.badgen.net/circleci/github/rsksmart/rif-communications-js/master)](https://circleci.com/gh/rsksmart/rif-communications-js/)
+[![Dependency Status](https://david-dm.org/rsksmart/rif-communications-js.svg?style=flat-square)](https://david-dm.org/rsksmart/rif-communications-js)
 [![](https://img.shields.io/badge/made%20by-IOVLabs-blue.svg?style=flat-square)](http://iovlabs.org)
 [![](https://img.shields.io/badge/project-RIF%20Storage-blue.svg?style=flat-square)](https://www.rifos.org/)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
@@ -44,7 +43,7 @@
 
 There are some ways you can make this module better:
 
-- Consult our [open issues](https://github.com/rsksmart/rif-communications/issues) and take on one of them
+- Consult our [open issues](https://github.com/rsksmart/rif-communications-js/issues) and take on one of them
 - Help our tests reach 100% coverage!
 
 
