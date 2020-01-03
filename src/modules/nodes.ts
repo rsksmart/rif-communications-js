@@ -1,7 +1,7 @@
 import libp2p from 'libp2p'
 // import { WebRTCDirectBundle } from './wRTCbundle';
 // import Multiaddr from 'multiaddr'
-import PeerInfo from 'peer-info'
+import { PeerInfo } from 'peer-info'
 
 /*
 export function connectToNode(
