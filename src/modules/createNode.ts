@@ -1,25 +1,21 @@
 import libp2p from 'libp2p'
-// import { WebRTCDirectBundle } from './wRTCbundle';
-// import Multiaddr from 'multiaddr'
+import { WebRTCDirectBundle } from './node'
+import Multiaddr from 'multiaddr'
 import { PeerInfo } from 'peer-info'
 
-/*
-export function connectToNode(
-  origin: libp2p,
-  destination: string,
-): Promise<void> {
+export function connectToNode (origin: libp2p, destination: string): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     origin.dial(destination, (err: any, val: any) => {
       if (err) {
-        throw err;
+        throw err
       } else {
         setTimeout(() => {
-          resolve();
-        }, 300);
+          resolve()
+        }, 300)
       }
-    });
-  });
-} */
+    })
+  })
+}
 
 export function sendMsg (
   client: libp2p,
@@ -45,42 +41,41 @@ export function sendMsg (
   })
 }
 
-/*
-export function createNode(
+function startNode (node: libp2p): Promise<libp2p> {
+  return new Promise<libp2p>((resolve, reject) => {
+    node.start((err: Error) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(node)
+      }
+    })
+  })
+}
+
+export function createNode (
   peerInfo: PeerInfo,
   host: string,
   port: number,
-  sendMsgFunc: any,
+  sendMsgFunc: any
 ): Promise<libp2p> {
-  let node: any;
+  const node = new WebRTCDirectBundle({
+    peerInfo
+  })
 
   peerInfo.multiaddrs.add(
-    new Multiaddr(`/ip4/${host}/tcp/${port}/http/p2p-webrtc-direct`),
-  );
-  node = new WebRTCDirectBundle({
-    peerInfo,
-  });
+    new Multiaddr(`/ip4/${host}/tcp/${port}/http/p2p-webrtc-direct`)
+  )
 
   return new Promise<libp2p>((resolve, reject) => {
     node.dht.registerListener(
       'kad-msg-received',
       (kadMsg: any) => {
-        sendMsgFunc(kadMsg);
+        sendMsgFunc(kadMsg)
       },
       () => {
-        resolve(
-          new Promise<libp2p>((resolve2, reject2) => {
-            node.start((err: Error) => {
-              if (err) {
-                reject2(err);
-              } else {
-                resolve2(node);
-              }
-            });
-          }),
-        );
-      },
-    );
-  });
+        resolve(startNode(node))
+      }
+    )
+  })
 }
-*/

@@ -1,3 +1,4 @@
+export * from './types'
 export * from './modules/peers'
-export * from './modules/nodes'
-export * from './modules/wRTCbundle'
+export * from './modules/createNode'
+export * from './modules/node'
