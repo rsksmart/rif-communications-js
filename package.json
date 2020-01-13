@@ -19,7 +19,6 @@
     "dist"
   ],
   "main": "lib/index.js",
-  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/rsksmart/rif-communications-js.git"
@@ -40,11 +39,11 @@
   "dependencies": {
     "libp2p": "rootstock/js-libp2p#stable",
     "libp2p-kad-dht": "rootstock/js-libp2p-kad-dht#stable",
-    "libp2p-websockets": "0.12.4",
-    "libp2p-webrtc-star": "0.16.1",
-    "libp2p-webrtc-direct": "0.3.1",
-    "libp2p-secio": "0.11.1",
     "libp2p-mplex": "0.8.5",
+    "libp2p-secio": "0.11.1",
+    "libp2p-webrtc-direct": "0.3.1",
+    "libp2p-webrtc-star": "0.16.1",
+    "libp2p-websockets": "0.12.4",
     "multiaddr": "6.1.1",
     "peer-id": "0.12.5",
     "peer-info": "0.15.1",
@@ -58,12 +57,13 @@
     "@types/node": "^13.1.1",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
-    "tasegir": "^1.4.0"
+    "tasegir": "^1.6.0"
   },
   "engines": {
     "node": ">=10.0.0",
     "npm": ">=6.0.0"
   },
+  "types": "types/index.d.ts",
   "contributors": [
     "Vojtech Simetka <vojtech@simetka.cz>"
   ]
