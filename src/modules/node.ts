@@ -10,7 +10,16 @@ import WebRTCDirect from 'libp2p-webrtc-direct'
 
 import wrtc from 'wrtc'
 
+/**
+ * Represents a peer node.
+ */
 export class Node extends libp2p {
+  /**
+   * Creates a node.
+   *
+   * @param _options inherited options from libp2p
+   * @param mode ConnectionMode for the node
+   */
   constructor (_options: any, mode: ConnectionMode) {
     const upgrader = {
       upgradeInbound: (maConn: () => {}) => maConn,
@@ -72,18 +81,33 @@ export class Node extends libp2p {
   }
 }
 
+/**
+ * Shortcut for Node(options, ConnectionMode.Socket)
+ *
+ * @deprecated will be removed in the next minor release. Use Node class instead.
+ */
 export class WebSocketBundle extends Node {
   constructor (_options: any) {
     super(_options, ConnectionMode.Socket)
   }
 }
 
+/**
+ * Shortcut for Node(options, ConnectionMode.WebRTC)
+ *
+ * @deprecated will be removed in the next minor release. Use Node class instead.
+ */
 export class WebRTCBundle extends Node {
   constructor (_options: any) {
     super(_options, ConnectionMode.WebRTC)
   }
 }
 
+/**
+ * Shortcut for Node(options, ConnectionMode.WebRTCDirect)
+ *
+ * @deprecated will be removed in the next minor release. Use Node class instead.
+ */
 export class WebRTCDirectBundle extends Node {
   constructor (_options: any) {
     super(_options, ConnectionMode.WebRTCDirect)

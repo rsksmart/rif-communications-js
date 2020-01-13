@@ -15,5 +15,8 @@ module.exports = {
                 )
             }
         },
+    },
+    depCheck: {
+        ignore: ['mocha', '@types/*', 'tasegir']
     }
 }
