@@ -1,5 +1,5 @@
 {
-  "name": "rif-communications",
+  "name": "@rsksmart/rif-communications",
   "version": "0.1.0",
   "description": "Library for decentralized communication build as part of RIF OS",
   "keywords": [
