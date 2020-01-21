@@ -1,7 +1,7 @@
-import libp2p from 'libp2p'
-import { WebRTCDirectBundle } from './node'
-import Multiaddr from 'multiaddr'
-import { PeerInfo } from 'peer-info'
+import libp2p from "libp2p";
+import { WebRTCDirectBundle } from "./node";
+import Multiaddr from "multiaddr";
+import { PeerInfo } from "peer-info";
 
 /**
  * Tries to connect to another peer in the network, establishes the connection.
@@ -9,18 +9,21 @@ import { PeerInfo } from 'peer-info'
  * @param origin - an instance of Libp2p with a custom PeerInfo
  * @param destination - a multiaddr string
  */
-export function connectToNode (origin: libp2p, destination: string): Promise<void> {
+export function connectToNode(
+  origin: libp2p,
+  destination: string
+): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     origin.dial(destination, (err: any, val: any) => {
       if (err) {
-        throw err
+        throw err;
       } else {
         setTimeout(() => {
-          resolve()
-        }, 300)
+          resolve();
+        }, 300);
       }
-    })
-  })
+    });
+  });
 }
 
 /**
@@ -32,7 +35,7 @@ export function connectToNode (origin: libp2p, destination: string): Promise<voi
  * @param msgNonce - message nonce
  * @param partialAddressing - enable destination id obfuscation
  */
-export function sendMsg (
+export function sendMsg(
   client: libp2p,
   recipient: PeerInfo,
   message: string,
@@ -47,13 +50,13 @@ export function sendMsg (
       partialAddressing !== undefined ? partialAddressing : false,
       (err: Error) => {
         if (err) {
-          reject(err)
+          reject(err);
         } else {
-          resolve()
+          resolve();
         }
       }
-    )
-  })
+    );
+  });
 }
 
 /**
@@ -61,16 +64,16 @@ export function sendMsg (
  *
  * @param node - libp2p node
  */
-function startNode (node: libp2p): Promise<libp2p> {
+function startNode(node: libp2p): Promise<libp2p> {
   return new Promise<libp2p>((resolve, reject) => {
     node.start((err: Error) => {
       if (err) {
-        reject(err)
+        reject(err);
       } else {
-        resolve(node)
+        resolve(node);
       }
-    })
-  })
+    });
+  });
 }
 
 /**
@@ -83,7 +86,7 @@ function startNode (node: libp2p): Promise<libp2p> {
  *
  * @returns Promise<libp2p>
  */
-export function createNode (
+export function createNode(
   peerInfo: PeerInfo,
   host: string,
   port: number,
@@ -91,21 +94,21 @@ export function createNode (
 ): Promise<libp2p> {
   const node = new WebRTCDirectBundle({
     peerInfo
-  })
+  });
 
   peerInfo.multiaddrs.add(
     new Multiaddr(`/ip4/${host}/tcp/${port}/http/p2p-webrtc-direct`)
-  )
+  );
 
   return new Promise<libp2p>((resolve, reject) => {
     node.dht.registerListener(
-      'kad-msg-received',
+      "kad-msg-received",
       (kadMsg: any) => {
-        sendMsgFunc(kadMsg)
+        sendMsgFunc(node, kadMsg);
       },
       () => {
-        resolve(startNode(node))
+        resolve(startNode(node));
       }
-    )
-  })
+    );
+  });
 }
