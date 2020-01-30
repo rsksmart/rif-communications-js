@@ -1,7 +1,8 @@
 # RIF Communication lib.js
 
-[![CircleCI](https://flat.badgen.net/circleci/github/rsksmart/rif-communications-js/master)](https://circleci.com/gh/rsksmart/rif-communications-js/)
-[![Dependency Status](https://david-dm.org/rsksmart/rif-communications-js.svg?style=flat-square)](https://david-dm.org/rsksmart/rif-communications-js)
+[![CircleCI](https://flat.badgen.net/circleci/github/rsksmart/rif-communications)](https://circleci.com/gh/rsksmart/rif-communications/)
+[![codecov](https://codecov.io/gh/rsksmart/rif-communications/master/graph/badge.svg)](https://codecov.io/gh/rsksmart/rif-communications)
+[![Dependency Status](https://david-dm.org/rsksmart/rif-communications.svg?style=flat-square)](https://david-dm.org/rsksmart/rif-communications)
 [![](https://img.shields.io/badge/made%20by-IOVLabs-blue.svg?style=flat-square)](http://iovlabs.org)
 [![](https://img.shields.io/badge/project-RIF%20Storage-blue.svg?style=flat-square)](https://www.rifos.org/)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
@@ -16,9 +17,7 @@
 
 - [Install](#install)
   - [npm](#npm)
-  - [Use in Node.js](#use-in-nodejs)
   - [Use in a browser with browserify, webpack or any other bundler](#use-in-a-browser-with-browserify-webpack-or-any-other-bundler)
-  - [Use in a browser Using a script tag](#use-in-a-browser-using-a-script-tag)
 - [Usage](#usage)
 - [API](#api)
 - [CLI](#cli)
@@ -30,12 +29,37 @@
 ### npm
 
 ```sh
-> npm install rif-communications
+> npm install @rsksmart/rif-communications
 ```
 
-### Use in Node.js
-
 ## Usage
+
+```js
+// 1. Import the library
+var RifCommunications = require('@rsksmart/rif-communications');
+
+// 2. Create a key or load from a secure storage to skip this step
+var key = await RifCommunications.createKey();
+
+// 3. Create peer id
+var peerId = await RifCommunications.createPeerIdFromJSON(key);
+
+// 4. Create peer information
+var peerInfo = await RifCommunications.createPeerInfo(peerId);
+
+// 5. Create your peer node
+var node = RifCommunications.createNode(peerInfo, host, port, sendMsgFunc);
+
+// 6. Connect to a bootnode using a multiaddress string
+await RifCommunications.connectToNode(node, BOOTNODE_ADDRESS);
+
+// 7. From the public key of the recipient create the recipient
+var recipient = await RifCommunications.createPeerIdFromPublicKey(recipientID);
+
+// 8. Send a message
+await RifCommunications.sendMsg(node, recipient, message, msgNonce);
+```
+
 
 ## API
 
@@ -43,9 +67,8 @@
 
 There are some ways you can make this module better:
 
-- Consult our [open issues](https://github.com/rsksmart/rif-communications-js/issues) and take on one of them
+- Consult our [open issues](https://github.com/rsksmart/rif-communications/issues) and take on one of them
 - Help our tests reach 100% coverage!
-
 
 
 ## License
