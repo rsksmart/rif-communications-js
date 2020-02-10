@@ -34,29 +34,38 @@
 
 ## Usage
 
-```js
-// 1. Import the library
-var RifCommunications = require('@rsksmart/rif-communications');
+### Import the library
 
-// 2. Create a key or load from a secure storage to skip this step
+```js
+var RifCommunications = require('@rsksmart/rif-communications');
+```
+
+### Initialization
+
+```js
+// Create a key or load from a secure storage to skip this step
 var key = await RifCommunications.createKey();
 
-// 3. Create peer id
+// Create peer id
 var peerId = await RifCommunications.createPeerIdFromJSON(key);
 
-// 4. Create peer information
+// Create peer information
 var peerInfo = await RifCommunications.createPeerInfo(peerId);
 
-// 5. Create your peer node
+// Create your peer node
 var node = RifCommunications.createNode(peerInfo, host, port, sendMsgFunc);
 
-// 6. Connect to a bootnode using a multiaddress string
+// Connect to a bootnode using a multiaddress string
 await RifCommunications.connectToNode(node, BOOTNODE_ADDRESS);
+```
 
-// 7. From the public key of the recipient create the recipient
+### Send a message to another peer
+
+```js
+// Create recipient from their public key (<recipientID>)
 var recipient = await RifCommunications.createPeerIdFromPublicKey(recipientID);
 
-// 8. Send a message
+// Send a message
 await RifCommunications.sendMsg(node, recipient, message, msgNonce);
 ```
 
@@ -67,7 +76,7 @@ await RifCommunications.sendMsg(node, recipient, message, msgNonce);
 
 There are some ways you can make this module better:
 
-- Consult our [open issues](https://github.com/rsksmart/rif-communications/issues) and take on one of them
+- Consult our [open issues](https://github.com/rsksmart/rif-communications-js/issues) and take on one of them
 - Help our tests reach 100% coverage!
 
 
