@@ -1,7 +1,7 @@
 {
   "name": "@rsksmart/rif-communications",
   "version": "0.1.0",
-  "description": "Library for decentralized communication build as part of RIF OS",
+  "description": "Library for decentralised communication built as part of RIF OS",
   "keywords": [
     "RIF",
     "communication",
@@ -41,13 +41,12 @@
     "libp2p-kad-dht": "rootstock/js-libp2p-kad-dht#stable",
     "libp2p-mplex": "0.8.5",
     "libp2p-secio": "0.11.1",
-    "libp2p-webrtc-direct": "0.3.1",
+    "libp2p-webrtc-direct": "0.4.0",
     "libp2p-webrtc-star": "0.16.1",
     "libp2p-websockets": "0.12.4",
     "multiaddr": "6.1.1",
     "peer-id": "0.12.5",
-    "peer-info": "0.15.1",
-    "wrtc": "^0.4.2"
+    "peer-info": "0.15.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.4",
