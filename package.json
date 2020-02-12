@@ -50,7 +50,7 @@
     "wrtc": "0.4.2"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.4",
+    "@types/chai": "^4.2.9",
     "@types/chai-as-promised": "^7.1.2",
     "@types/dirty-chai": "^2.0.2",
     "@types/mocha": "^5.2.7",
