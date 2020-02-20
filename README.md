@@ -1,7 +1,6 @@
 # RIF Communication lib.js
 
-[![CircleCI](https://flat.badgen.net/circleci/github/rsksmart/rif-communications)](https://circleci.com/gh/rsksmart/rif-communications/)
-[![codecov](https://codecov.io/gh/rsksmart/rif-communications/master/graph/badge.svg)](https://codecov.io/gh/rsksmart/rif-communications)
+[![CircleCI](https://flat.badgen.net/circleci/github/rsksmart/rif-communications-js)](https://circleci.com/gh/rsksmart/rif-communications-js/)
 [![Dependency Status](https://david-dm.org/rsksmart/rif-communications.svg?style=flat-square)](https://david-dm.org/rsksmart/rif-communications)
 [![](https://img.shields.io/badge/made%20by-IOVLabs-blue.svg?style=flat-square)](http://iovlabs.org)
 [![](https://img.shields.io/badge/project-RIF%20Storage-blue.svg?style=flat-square)](https://www.rifos.org/)
