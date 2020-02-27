@@ -35,7 +35,7 @@ export class Node extends libp2p {
     }
 
     if (mode === ConnectionMode.WebRTCDirect) {
-      transportOption.push(new WebRTCDirect())
+      transportOption.push(new WebRTCDirect({upgrader: upgrader}))
     }
 
     const transport = [ws, ...transportOption]
