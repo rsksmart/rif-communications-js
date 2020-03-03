@@ -37,16 +37,16 @@
     "prepare": "tasegir compile"
   },
   "dependencies": {
-    "libp2p": "rootstock/js-libp2p#stable",
-    "libp2p-kad-dht": "rootstock/js-libp2p-kad-dht#stable",
-    "libp2p-mplex": "0.8.5",
-    "libp2p-secio": "0.11.1",
+    "libp2p": "rootstock/js-libp2p#latest_stable",
+    "libp2p-kad-dht": "rootstock/js-libp2p-kad-dht#latest_stable",
+    "libp2p-mplex": "0.9.4",
+    "libp2p-secio": "0.12.3",
     "libp2p-webrtc-direct": "0.4.0",
-    "libp2p-webrtc-star": "0.16.1",
-    "libp2p-websockets": "0.12.4",
-    "multiaddr": "7.3.1",
-    "peer-id": "0.12.5",
-    "peer-info": "0.15.1",
+    "libp2p-webrtc-star": "0.17.7",
+    "libp2p-websockets": "0.13.5",
+    "multiaddr": "7.4.0",
+    "peer-id": "0.13.9",
+    "peer-info": "0.17.5",
     "wrtc": "0.4.2"
   },
   "devDependencies": {
@@ -54,8 +54,10 @@
     "@types/chai-as-promised": "^7.1.2",
     "@types/dirty-chai": "^2.0.2",
     "@types/mocha": "^5.2.7",
+    "@types/multiaddr": "^7.2.0",
     "@types/node": "^13.7.4",
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^7.0.1",
     "tasegir": "^1.6.0"
   },

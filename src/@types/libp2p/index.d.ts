@@ -21,7 +21,7 @@ declare module 'libp2p' {
 
   export default class Libp2p {
     constructor(_options: any);
-    dht: any;
+    _dht: any;
 
     /**
      * Dials to the provided peer. If successful, the `PeerInfo` of the

@@ -1,5 +1,5 @@
-import { create, createFromJSON, createFromPubKey, PeerId } from 'peer-id'
-import { create as peerInfoCreate, PeerInfo } from 'peer-info'
+import PeerId from 'peer-id'
+import PeerInfo from 'peer-info'
 
 /**
  * Creates a new PeerInfo instance from an existing PeerId.
@@ -9,15 +9,7 @@ import { create as peerInfoCreate, PeerInfo } from 'peer-info'
  * @returns Promise<PeerInfo>
  */
 export function createPeerInfo (pId: PeerId): Promise<PeerInfo> {
-  return new Promise<PeerInfo>((resolve, reject) => {
-    peerInfoCreate(pId, (err: Error, peer: PeerInfo) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(peer)
-      }
-    })
-  })
+  return PeerInfo.create(pId)
 }
 
 /**
@@ -31,15 +23,7 @@ export function createPeerInfo (pId: PeerId): Promise<PeerInfo> {
  * @returns Promise<PeerId>
  */
 export function createPeerIdFromJSON (keystoreJson: any): Promise<PeerId> {
-  return new Promise<PeerId>((resolve, reject) => {
-    createFromJSON(keystoreJson, (err: Error, peerId: PeerId) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(peerId)
-      }
-    })
-  })
+  return PeerId.createFromJSON(keystoreJson)
 }
 
 /**
@@ -50,15 +34,7 @@ export function createPeerIdFromJSON (keystoreJson: any): Promise<PeerId> {
  * @returns Promise<PeerId>
  */
 export function createPeerIdFromPublicKey (publicKey: string | Buffer): Promise<PeerId> {
-  return new Promise<PeerId>((resolve, reject) => {
-    createFromPubKey(publicKey, (err: Error, peerId: PeerId) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(peerId)
-      }
-    })
-  })
+  return PeerId.createFromPubKey(publicKey)
 }
 
 /**
@@ -67,17 +43,9 @@ export function createPeerIdFromPublicKey (publicKey: string | Buffer): Promise<
  * @returns Promise<PeerId>
  */
 export function createKey (): Promise<PeerId> {
-  const opts = {
+  const opts: PeerId.CreateOptions = {
     bits: 256,
     keyType: 'secp256k1'
   }
-  return new Promise<PeerId>((resolve, reject) => {
-    create(opts, (err: Error, peer: PeerId) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(peer)
-      }
-    })
-  })
+  return PeerId.create(opts)
 }

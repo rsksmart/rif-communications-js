@@ -1,7 +1,7 @@
 import libp2p from 'libp2p'
 import { WebRTCDirectBundle } from './node'
 import Multiaddr from 'multiaddr'
-import { PeerInfo } from 'peer-info'
+import PeerInfo from 'peer-info'
 
 /**
  * Tries to connect to another peer in the network, establishes the connection.
@@ -40,7 +40,7 @@ export function sendMsg (
   partialAddressing?: boolean
 ): Promise<void> {
   return new Promise<void>((resolve, reject) => {
-    client.dht.sendMessage(
+    client._dht.sendMessage(
       recipient.id,
       message,
       msgNonce,
@@ -98,14 +98,12 @@ export function createNode (
   )
 
   return new Promise<libp2p>((resolve, reject) => {
-    node.dht.registerListener(
+    node._dht.on(
       'kad-msg-received',
       (kadMsg: any) => {
         sendMsgFunc(kadMsg)
-      },
-      () => {
-        resolve(startNode(node))
       }
     )
+    resolve(startNode(node))
   })
 }

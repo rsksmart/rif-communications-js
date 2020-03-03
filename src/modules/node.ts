@@ -1,19 +1,17 @@
 import { ConnectionMode } from '../types'
 
-import libp2p from 'libp2p'
+import Libp2p from 'libp2p'
 import KadDHT from 'libp2p-kad-dht'
 import Mplex from 'libp2p-mplex'
 import SECIO from 'libp2p-secio'
-import WS from 'libp2p-websockets'
-import Wstar from 'libp2p-webrtc-star'
+import Websockets from 'libp2p-websockets'
+import WebSocketStar from 'libp2p-webrtc-star'
 import WebRTCDirect from 'libp2p-webrtc-direct'
-
-import wrtc from 'wrtc'
 
 /**
  * Represents a peer node.
  */
-export class Node extends libp2p {
+export class Node extends Libp2p {
   /**
    * Creates a node.
    *
@@ -21,24 +19,17 @@ export class Node extends libp2p {
    * @param mode ConnectionMode for the node
    */
   constructor (_options: any, mode: ConnectionMode) {
-    const upgrader = {
-      upgradeInbound: (maConn: () => {}) => maConn,
-      upgradeOutbound: (maConn: () => {}) => maConn
-    }
-
-    const ws = new WS({ upgrader })
-
     const transportOption = []
 
     if (mode === ConnectionMode.WebRTC) {
-      transportOption.push(new Wstar({ wrtc: wrtc }))
+      transportOption.push(WebSocketStar)
     }
 
     if (mode === ConnectionMode.WebRTCDirect) {
-      transportOption.push(new WebRTCDirect({upgrader: upgrader}))
+      transportOption.push(WebRTCDirect)
     }
 
-    const transport = [ws, ...transportOption]
+    const transport = [Websockets, ...transportOption]
 
     const config: any = {
       dht: {
