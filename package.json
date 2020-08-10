@@ -45,7 +45,7 @@
     "libp2p-webrtc-star": "0.16.1",
     "libp2p-websockets": "0.12.4",
     "multiaddr": "6.1.1",
-    "peer-id": "0.12.5",
+    "peer-id": "0.14.0",
     "peer-info": "0.15.1",
     "wrtc": "0.4.2"
   },
