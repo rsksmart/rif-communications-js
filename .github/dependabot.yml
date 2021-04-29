@@ -1,0 +1,53 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "09:00"
+    timezone: Europe/Prague
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: peer-id
+    versions:
+    - 0.14.2
+    - 0.14.3
+    - 0.14.4
+    - 0.14.6
+  - dependency-name: libp2p-websockets
+    versions:
+    - 0.15.0
+    - 0.15.1
+    - 0.15.2
+    - 0.15.3
+    - 0.15.5
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+    - 14.14.25
+    - 14.14.28
+    - 14.14.31
+    - 14.14.32
+    - 14.14.34
+    - 14.14.35
+    - 14.14.37
+  - dependency-name: libp2p-webrtc-star
+    versions:
+    - 0.20.7
+    - 0.21.0
+    - 0.21.1
+    - 0.21.2
+  - dependency-name: "@types/mocha"
+    versions:
+    - 8.2.0
+    - 8.2.1
+  - dependency-name: libp2p-mplex
+    versions:
+    - 0.10.1
+    - 0.10.2
+  - dependency-name: multiaddr
+    versions:
+    - 8.1.2
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
